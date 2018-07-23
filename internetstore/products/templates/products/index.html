@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет магазин</title>
+</head>
+<body>
+<h1>{{ content }}</h1>
+    <div>{{ subcontent }}</div>
+<h2>{{ user }}</h2>
+<div>
+
+        {% for row_name, row in data.items %}
+            {% for col_name, col in  row.items %}
+                <div>
+                    <label for="">{{ col_name }}</label>
+                    <span>{{ col }}</span>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+
+</div>
+</body>
+</html>
