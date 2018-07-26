@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Голубые гитары</title>
+        <link rel="stylesheet" href="{% static 'products/style1.css' %}">
+    </head>
+    <body>
+        <div class="header">
+            <div id="logo">
+                <img src="/media/images/logo-small.png" alt="logo" id="img-logo-left">
+                <h1 id="title">{{ title }}</h1>
+                <img src="/media/images/logo-small.png" alt="logo" id="img-logo-right">
+            </div>
+            <div id="menu">
+                <ul class="menu-list">
+                    {% for item in menu %}
+                        <li class="menu_item"><a href={{ item.href }}>{{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <h3>Напишите нам</h3>
+            <form action=# name="feedback" method="post">
+                <fieldset id="fborder">
+                    <legend>Форма обратной связи</legend>
+                    <input class="feedback" type="text" id="name" placeholder="напишите здесь ваше имя">
+                        <label for="name">Ваше имя</label><br>
+                    <input class="feedback" type="email" id="email" placeholder="ваш адрес электронной почты">
+                        <label for="email">e-mail</label><br>
+                    <input class="feedback" type="tel" id="phonenum" placeholder="ваш номер телефона">
+                        <label for="phonenum">Номер телефона</label><br>
+                    <input class="feedback" type="text" id="subj" placeholder="тема сообщения">
+                        <label for="subj">Тема сообщения</label><br>
+                        <label for="message">Ваше сообщение</label><br>
+                    <textarea name="area" id="message" placeholder="текст сообщения"></textarea><br>
+                    <input type="submit" value="Отправить">
+                </fieldset>
+            </form>
+            <h3>Наш адрес</h3>
+            <strong>Наш адрес:</strong> г.Костанай, ул.Тауельсыздык 153, офис №2 <br>
+            <strong>телефон:</strong> (7142)-22-33-22<br>
+            <strong>e-mail:</strong> blueguitars@mail.ru <br>
+            <strong>карта проезда: </strong><br>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3c42937c31ab53ca4acc64f78a6f6fda0299eb3db443e524f1f9bbc68ece3c4d&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+        </div>
+        <div class="footer">
+            &copy; Все права защищены
+        </div>
+    </body>
+</html>
