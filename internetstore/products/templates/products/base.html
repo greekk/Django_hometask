@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} </title>
+        <link rel="stylesheet" href="{% static 'products/style1.css' %}">
+    </head>
+
+    <body>
+        <div class="header">
+            <div id="logo">
+                <img src="/media/images/logo-small.png" alt="logo" id="img-logo-left">
+                <h1 id="title">{{ title }}</h1>
+                <img src="/media/images/logo-small.png" alt="logo" id="img-logo-right">
+            </div>
+
+            {% block menu %}
+                {% include 'products/menu.html' %}
+            {% endblock %}
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        {% block footer %}
+            {% include 'products/footer.html' %}
+        {% endblock %}
+    </body>
+</html>
