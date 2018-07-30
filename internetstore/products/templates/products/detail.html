@@ -1,0 +1,23 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block title %}O продукте{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="product">
+            <h1 class="product-name">{{ product.name }}</h1>
+            <div class="short-char-descr">
+                <h3 class="char-title">Краткое описание товара</h3>
+                {{ product.content }}
+            </div>
+            <div class="product-image">
+                <!--a href="#" target="_blank"-->
+                    <img src="/media/{{ product.image }}" alt="{{ product.name }}" class="small-image">
+                <!--/a-->
+            </div>
+            <div class="cost">{{ product.cost }}</div>
+            <div class="full-char-descr">
+                <a href=# class="to-buy">Купить</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
