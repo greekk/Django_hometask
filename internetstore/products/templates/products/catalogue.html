@@ -1,57 +1,19 @@
+{% extends 'products/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Каталог</title>
-    <link rel="stylesheet" href="{% static 'products/style1.css' %}">
-</head>
-<body>
-    <div class="header">
-        <div id="logo">
-            <img src="/media/images/logo-small.png" alt="logo" id="img-logo-left">
-            <h1 id="title">{{ title }}</h1>
-            <img src="/media/images/logo-small.png" alt="logo" id="img-logo-right">
-        </div>
-        <div id="menu">
-            <ul class="menu-list">
-                {% for item in menu %}
-                    <li class="menu_item"><a href={{ item.href }}>{{ item.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        </div>
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+
     <div class="main">
         <h1 id="catalogue-head">Каталог электрогитар</h1>
-        <p class="product-item">
-            <img src="/media/images/thumb/gretsch_g5438_th.png" alt="Gretch G5438">
-            <br>
-            <a href="products/gretsh_G5438.html">GRETSCH G5438 ELCTRMTC PRO JET электрогитара</a>
-        </p>
-        <p class="product-item">
-            <img src="/media/images/thumb/squier_bullet.png" alt="Squier bullet W/trem HSS BLK">
-            <br>
-            <a href="products/squier_bullet.html">Squier bullet W/trem HSS BLK электрогитара</a>
-        </p>
-        <p class="product-item">
-            <img src="/media/images/thumb/cort_x3-rm.png" alt="Cort X3 RM">
-            <br>
-            <a href="products/cort_x-3_rm.html">CORT X-3 RM электрогитара</a>
-        </p>
-        <p class="product-item">
-            <img src="/media/images/thumb/cort_x2-wh.png" alt="Cort X-2 WH">
-            <br>
-            <a href="products/cort_x-2_wh.html">Cort X-2 WH электрогитара</a>
-        </p>
-        <p class="product-item">
-            <img src="/media/images/thumb/cort_x2-bk.png" alt="Cort X-2 BK">
-            <br>
-            <a href="products/cort_x-2_bk.html">Cort X-2 BK электрогитара</a>
-        </p>
+        {% for item in query %}
+            <p class="product-item">
+                <img src="/media/{{ item.image }}" alt="{{ item.name }}">
+                <br>
+                <a href="{{ item.id }}"> {{ item.category }} {{ item.name }}</a>
+            </p>
+        {% endfor %}
+
     </div>
-    <div class="footer">
-        &copy; Все права защищены
-    </div>
-</body>
-</html>
+{% endblock %}
